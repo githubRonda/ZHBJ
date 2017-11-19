@@ -2,7 +2,6 @@ package com.ronda.zhbj;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.MainThread;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -14,8 +13,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import com.ronda.zhbj.utils.DensityUtils;
 import com.ronda.zhbj.utils.PrefUtils;
-import com.socks.library.KLog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -130,7 +129,7 @@ public class GuideActivity extends AppCompatActivity {
             //设置左边距
             if (i > 0) {
                 //从第二个点开始设置左边距
-                params.leftMargin = 10;
+                params.leftMargin = DensityUtils.dp2px(this, 10);//10dp的margin
                 point.setLayoutParams(params);
             }
             llContainer.addView(point); // 贴容器添加小圆点

@@ -10,12 +10,12 @@ import android.widget.RadioGroup;
 
 import com.ronda.zhbj.MainActivity;
 import com.ronda.zhbj.R;
-import com.ronda.zhbj.base.BasePager;
-import com.ronda.zhbj.base.impl.GovAffairsPager;
-import com.ronda.zhbj.base.impl.HomePager;
-import com.ronda.zhbj.base.impl.NewsCenterPager;
-import com.ronda.zhbj.base.impl.SettingsPager;
-import com.ronda.zhbj.base.impl.SmartServicePager;
+import com.ronda.zhbj.main.GovAffairsPager;
+import com.ronda.zhbj.main.HomePager;
+import com.ronda.zhbj.main.NewsCenterPager;
+import com.ronda.zhbj.main.SettingsPager;
+import com.ronda.zhbj.main.SmartServicePager;
+import com.ronda.zhbj.main.base.BasePager;
 
 import java.util.ArrayList;
 

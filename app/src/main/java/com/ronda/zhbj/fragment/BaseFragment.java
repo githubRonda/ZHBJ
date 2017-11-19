@@ -8,8 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import org.xutils.x;
-
 /**
  * Author: Ronda(1575558177@qq.com)
  * Date: 2017/10/12

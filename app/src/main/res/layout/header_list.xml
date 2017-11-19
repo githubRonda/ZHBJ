@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+    <!--外边再嵌套一层布局, 因为inflate布局时, 若没有parentView,则根布局设置的宽高是无效的-->
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        >
+
+        <com.ronda.zhbj.view.TopNewsViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:background="#a000"
+            android:padding="5dp"
+            >
+
+            <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#fff"
+                android:textSize="16sp"
+                tools:text="标题"
+                />
+
+            <com.viewpagerindicator.CirclePageIndicator
+                android:id="@+id/indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                app:fillColor="#f00"
+                app:pageColor="#ccc"
+                app:radius="3dp"
+                app:strokeWidth="0dp"
+                />
+            <!--
+                app:radius="10dp"
+                app:fillColor="#FF888888"
+                app:pageColor="#88FF0000"
+                app:strokeColor="#FF000000"
+                app:strokeWidth="2dp"
+                -->
+
+        </RelativeLayout>
+    </FrameLayout>
+
+</FrameLayout>

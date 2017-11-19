@@ -10,6 +10,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/SlidingMenuLibrary" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/lib_ViewPagerIndicator" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

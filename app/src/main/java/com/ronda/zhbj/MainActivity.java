@@ -1,10 +1,10 @@
 package com.ronda.zhbj;
 
-import android.support.v4.app.Fragment;
+import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.view.Window;
 
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.ronda.zhbj.bean.NewsMenu;
@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * 主界面
  */
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends FragmentActivity {
 
     private static final String TAG_LEFT_MENU = "tag_left_menu";
     private static final String TAG_CONTENT = "tag_content";
@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -35,8 +36,12 @@ public class MainActivity extends AppCompatActivity {
         mSlidingMenu.setMode(SlidingMenu.LEFT);
         //设置全屏触摸范围可拉出侧边栏
         mSlidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
-        //设置内容区的宽度,而不是侧边栏的宽度
-        mSlidingMenu.setBehindOffset(500);
+        // 设置内容区的宽度,而不是侧边栏的宽度
+        //使用代码进行屏幕适配
+        //mSlidingMenu.setBehindOffset(200);
+        int width = getWindowManager().getDefaultDisplay().getWidth();
+        int offset = (int) (width * 200/320.0);
+        mSlidingMenu.setBehindOffset(offset);
 
         //设置侧边栏的布局文件
         mSlidingMenu.setMenu(R.layout.left_menu);
@@ -65,18 +70,19 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * 是否启用侧边栏
+     *
      * @param enable
      */
-    public void setSlidingMenuEnable(boolean enable){
-        if (enable){
+    public void setSlidingMenuEnable(boolean enable) {
+        if (enable) {
             mSlidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
-        }else{
+        } else {
             mSlidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_NONE);
         }
     }
 
 
-    public void setLeftMenuData(List<NewsMenu.DataBean> data){
+    public void setLeftMenuData(List<NewsMenu.DataBean> data) {
 
         LeftMenuFragment leftMenuFragment = (LeftMenuFragment) mFragmentManager.findFragmentByTag(TAG_LEFT_MENU);
         leftMenuFragment.setMenuData(data);
@@ -91,10 +97,11 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * 通知新闻中心Pager, 侧边栏中点击了哪一项
+     *
      * @param position
      */
     public void notifyLeftMenuClicked(int position) {
-        ContentFragment contentFragment= (ContentFragment) mFragmentManager.findFragmentByTag(TAG_CONTENT);
+        ContentFragment contentFragment = (ContentFragment) mFragmentManager.findFragmentByTag(TAG_CONTENT);
         contentFragment.notifyNewsPager(position);
 
     }

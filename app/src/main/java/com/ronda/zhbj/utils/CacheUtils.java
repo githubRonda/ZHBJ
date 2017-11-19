@@ -1,7 +1,6 @@
 package com.ronda.zhbj.utils;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 
 /**
  * Author: Ronda(1575558177@qq.com)

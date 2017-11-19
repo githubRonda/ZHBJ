@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:gravity="center_vertical"
+    android:padding="10dp"
+    >
+
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:src="@drawable/image_demo"
+        android:scaleType="centerCrop"
+        android:background="#a000"
+        android:layout_marginRight="5dp"
+        android:padding="1dp"
+        />
+    <!-- android:background="@drawable/shape_image_border" -->
+    
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_toRightOf="@id/iv_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:textColor="#000"
+        android:textSize="18sp"
+        tools:text="奥斯卡剪短发四六级放得 按时打算地方撒打算打算地方大师傅地方撒发送手动按时大师傅阿斯顿发斯蒂芬开拉升就"
+        />
+
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        tools:text="2017-11-11"
+        android:textColor="#a000"
+        android:layout_toRightOf="@id/iv_icon"
+        android:layout_below="@id/tv_title"
+        android:layout_marginTop="5dp"
+        />
+
+</RelativeLayout>

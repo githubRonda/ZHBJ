@@ -24,6 +24,14 @@ public class NoScrollViewPager extends ViewPager {
         super(context, attrs);
     }
 
+    //事件拦截
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        //return super.onInterceptTouchEvent(ev);
+        return false; // 不拦截子控件的事件.原因:滑动tab时, 会出现划动很慢的情况, 此时就是事件在分发的时候被最外层的ViewPager给拦截掉了
+    }
+
+
     // 原生的ViewPager之所以可以滑动,肯定是在onTouchEvent()中进行了处理. 所以只要复写了这个方法并且直接返回true, 则ViewPager就滑动不了了
     @Override
     public boolean onTouchEvent(MotionEvent ev) {
